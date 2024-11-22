@@ -23,15 +23,15 @@ int main() {
 
     scanf("%d", &number);
 
-    printf("Binary: ");
+    printf("Binary: ");  //print the lable for binary output
     
-    int leadingZero = 1; 
+    int leadingZero = 1;   //a flag to track leading zeros    The leadingZero flag is used to skip leading zeros until the first 1 bit is encountered.
     
     for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
         int bit = (number >> i) & 1;
         
         if (bit == 1) {
-            leadingZero = 0; 
+            leadingZero = 0;    //If the number is 0, the binary loop will skip all bits, resulting in no output. To handle this, you could add a special case for zero.
         }
         
         if (!leadingZero) {
@@ -40,7 +40,7 @@ int main() {
     }
 
     printf("\n");
-    printf("Hexadecimal: %X\n", number);
+    printf("Hexadecimal: %X\n", number);    //The %X format specifier in printf is used to print the number in uppercase hexadecimal format.
 
     return 0;
 }
